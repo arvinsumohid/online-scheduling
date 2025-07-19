@@ -1,69 +1,91 @@
-# React + TypeScript + Vite
+# Online Scheduling App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, full-featured online scheduling application for booking appointments with doctors. Built using Next.js, React, TypeScript, and Material UI.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Multi-step booking process (select doctor, date/time, patient details, summary)
+- State management with React hooks and reducers
+- Modular and scalable folder structure
+- Responsive and user-friendly UI
+- Easy customization for different appointment types
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework:** Next.js (React)
+- **Language:** TypeScript
+- **UI Library:** Material UI (MUI)
+- **Date Handling:** Day.js
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Prerequisites
+- Node.js (v16 or above recommended)
+- npm or yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+```bash
+# Clone the repository
+$ git clone https://github.com/arvinsumohid/online-scheduling.git
+$ cd online-scheduling
+
+# Install dependencies
+$ npm install
+# or
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Running the App
+```bash
+# Start the development server
+$ npm run dev
+# or
+yarn dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# The app will be available at http://localhost:3000
 ```
+
+### Formatting Code
+```bash
+npm run format
+```
+
+## Project Structure
+
+```
+├── src/
+│   ├── app/
+│   │   ├── booking/        # Booking workflow components and pages
+│   │   ├── dashboard/      # Dashboard pages
+│   │   ├── login/          # Login components and pages
+│   │   └── ...
+│   ├── components/         # Shared UI components
+│   ├── interfaces/         # TypeScript interfaces (e.g., booking.interface.tsx)
+│   ├── store/              # Reducers and state management
+│   └── ...
+├── public/                 # Static assets
+├── styles/                 # Global and component styles
+├── .gitignore
+├── package.json
+├── README.md
+└── ...
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a pull request
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+For questions or support, open an issue or contact the maintainer.
+
+
+
