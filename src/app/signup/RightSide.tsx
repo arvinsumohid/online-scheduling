@@ -5,8 +5,6 @@ import {
   TextField,
   Button,
   Divider,
-  FormControlLabel,
-  Checkbox,
   IconButton,
   InputAdornment,
 } from "@mui/material";
@@ -20,6 +18,7 @@ import TitleWithDescription from "@/components/TitleWithDescription";
 
 const RightSide = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [confirmShowPassword, setConfirmShowPassword] = useState(false);
 
   return (
     <Box
@@ -33,8 +32,29 @@ const RightSide = () => {
       }}
     >
       <Box sx={{ width: "100%", maxWidth: 400, mx: "auto" }}>
-        <TitleWithDescription title="Sign in to your account" description="Enter your credentials to access your account" />
+        <TitleWithDescription title="Create your account" description="Start your journey with us today" />
+        <Box sx={{ display: "flex", gap: 2, justifyContent: "center", mb: 2 }}>
+          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
+            <GoogleIcon />
+          </IconButton>
+          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
+            <AppleIcon />
+          </IconButton>
+          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
+            <GitHubIcon />
+          </IconButton>
+        </Box>
+        <Divider sx={{ my: 2 }}>or</Divider>
         <form>
+          <TextField
+            label="Full Name"
+            type="text"
+            fullWidth
+            margin="normal"
+            placeholder="John Doe"
+            autoComplete="name"
+            required
+          />
           <TextField
             label="Email address"
             type="email"
@@ -66,26 +86,28 @@ const RightSide = () => {
               ),
             }}
           />
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              mt: 1,
+          <TextField
+            label="Confirm Password"
+            type={confirmShowPassword ? "text" : "password"}
+            fullWidth
+            margin="normal"
+            autoComplete="current-password"
+            required
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={() => setConfirmShowPassword((show) => !show)}
+                    edge="end"
+                    size="small"
+                  >
+                    {confirmShowPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
             }}
-          >
-            <FormControlLabel
-              control={<Checkbox size="small" />}
-              label={<Typography variant="body2">Remember me</Typography>}
-            />
-            <Button
-              href="#"
-              size="small"
-              sx={{ textTransform: "none", fontSize: "0.95rem" }}
-            >
-              Forgot password?
-            </Button>
-          </Box>
+          />
           <Button
             type="submit"
             variant="contained"
@@ -99,28 +121,16 @@ const RightSide = () => {
               background: "#2563eb",
             }}
           >
-            Sign in
+            Create Account
           </Button>
         </form>
-        <Divider sx={{ my: 2 }}>Or continue with</Divider>
-        <Box sx={{ display: "flex", gap: 2, justifyContent: "center", mb: 2 }}>
-          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
-            <GoogleIcon />
-          </IconButton>
-          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
-            <AppleIcon />
-          </IconButton>
-          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
-            <GitHubIcon />
-          </IconButton>
-        </Box>
         <Typography
           variant="body2"
           sx={{ textAlign: "center", color: "grey.600" }}
         >
           Don&apos;t have an account?{" "}
           <Link
-            href="/signup"
+            href="/login"
             style={{
               textTransform: "none",
               fontWeight: "bold",
@@ -129,7 +139,7 @@ const RightSide = () => {
               minWidth: 0,
             }}
           >
-            Sign up
+            Sign in
           </Link>
         </Typography>
       </Box>
