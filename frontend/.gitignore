@@ -11,6 +11,7 @@
 # production
 /build
 
+
 # misc
 .DS_Store
 .env.local
@@ -40,3 +41,5 @@ Desktop.ini
 *.njsproj
 *.sln
 *.sw?
+kind.exe
+minikube.exe
