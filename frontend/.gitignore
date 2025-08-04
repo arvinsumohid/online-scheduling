@@ -1,7 +1,8 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+/.pnp.js
+/bin
 
 # next.js build output
 /.next
@@ -21,6 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
+kind.exe
+minikube.exe
 
 # VSCode
 .vscode
