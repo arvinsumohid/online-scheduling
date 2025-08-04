@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-dev
+  template:
+    metadata:
+      labels:
+        app: frontend-dev
+    spec:
+      containers:
+        - name: frontend
+          image: cryxous93/online-scheduling-frontend:dev
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3003
+          envFrom:
+            - configMapRef:
+                name: frontend-env
+          volumeMounts:
+            - name: node-modules
+              mountPath: /app/node_modules
+            - name: next
+              mountPath: /app/.next
+      volumes:
+        - name: node-modules
+          emptyDir: {}
+        - name: next
+          emptyDir: {}
