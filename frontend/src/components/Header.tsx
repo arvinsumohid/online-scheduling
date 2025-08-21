@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
-import { auth0 } from "@/lib/auth0";
+import { useUser } from '@auth0/nextjs-auth0';
 
-const Header = async () => {
-  const session = await auth0.getSession();
+const Header = () => {
+  const { user, isLoading } = useUser();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" color="default">
@@ -17,22 +17,32 @@ const Header = async () => {
             style={{ maxWidth: "100%", height: "auto", width: "auto" }}
           />
           <Box sx={{ flexGrow: 1 }} />
-          {session ? (
-            <Button
-              href="/dashboard"
-              variant="contained"
-              color="primary"
-            >
-              Dashboard
-            </Button>
-          ) : (
+          {user && (
+            <Box sx={{ display: "flex", gap: 2 }}>
+              <Button
+                href="/dashboard"
+                variant="contained"
+                color="primary"
+              >
+                Dashboard
+              </Button>
+              <Button
+                href="/auth/logout"
+                variant="contained"
+                color="primary"
+              >
+                Logout
+              </Button>
+            </Box >
+          )}
+          {!user && !isLoading && (
             <Button
               href="/auth/login"
               variant="contained"
               color="primary"
             >
-            Login
-          </Button>
+              Login
+            </Button>
           )}
         </Toolbar>
       </AppBar>
