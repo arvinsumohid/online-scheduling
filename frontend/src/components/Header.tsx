@@ -1,12 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
-import { useRouter } from "next/navigation";
-import { useUser } from "@auth0/nextjs-auth0";
+import { auth0 } from "@/lib/auth0";
 
-const Header = () => {
-  const router = useRouter();
-  const { user } = useUser();
+const Header = async () => {
+  const session = await auth0.getSession();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" color="default">
@@ -19,9 +17,9 @@ const Header = () => {
             style={{ maxWidth: "100%", height: "auto", width: "auto" }}
           />
           <Box sx={{ flexGrow: 1 }} />
-          {user ? (
+          {session ? (
             <Button
-              onClick={() => router.push("/dashboard")}
+              href="/dashboard"
               variant="contained"
               color="primary"
             >
@@ -29,8 +27,7 @@ const Header = () => {
             </Button>
           ) : (
             <Button
-              component="link"
-              href="/api/auth/login"
+              href="/auth/login"
               variant="contained"
               color="primary"
             >

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import MuiThemeProvider from "./mui-theme-provider";
 import ClientLayout from "../components/ClientLayout";
+import { Auth0Provider } from '@auth0/nextjs-auth0';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased ${inter.className} bg-[#F9FAFB]`}>
-        <MuiThemeProvider>
-          <ClientLayout>{children}</ClientLayout>
-        </MuiThemeProvider>
+        <Auth0Provider>
+          <MuiThemeProvider>
+            <ClientLayout>{children}</ClientLayout>
+          </MuiThemeProvider>
+        </Auth0Provider>
       </body>
     </html>
   );

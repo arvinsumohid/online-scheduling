@@ -55,9 +55,9 @@ npm run format
 docker run -p 3003:3003 online-scheduling
 ```
 
-### docker
+### docker-compose
 ```bash
- 
+docker-compose up
 ```
 
 ## Project Structure
