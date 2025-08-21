@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import {
   Box,
@@ -10,16 +11,16 @@ import {
   IconButton,
   InputAdornment,
 } from "@mui/material";
-import GoogleIcon from "@mui/icons-material/Google";
-import AppleIcon from "@mui/icons-material/Apple";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Link from "next/link";
 import TitleWithDescription from "@/components/TitleWithDescription";
+import useLogin from "@/hooks/useLogin";
+import SocialLogin from "@/components/SocialLogin";
 
 const RightSide = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { login, handleChange, handleSubmit } = useLogin();
 
   return (
     <Box
@@ -34,7 +35,7 @@ const RightSide = () => {
     >
       <Box sx={{ width: "100%", maxWidth: 400, mx: "auto" }}>
         <TitleWithDescription title="Sign in to your account" description="Enter your credentials to access your account" />
-        <form>
+        <form onSubmit={handleSubmit}>
           <TextField
             label="Email address"
             type="email"
@@ -43,6 +44,8 @@ const RightSide = () => {
             placeholder="name@company.com"
             autoComplete="email"
             required
+            value={login.email}
+            onChange={(e) => handleChange("email", e.target.value)}
           />
           <TextField
             label="Password"
@@ -51,6 +54,8 @@ const RightSide = () => {
             margin="normal"
             autoComplete="current-password"
             required
+            value={login.password}
+            onChange={(e) => handleChange("password", e.target.value)}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -103,17 +108,7 @@ const RightSide = () => {
           </Button>
         </form>
         <Divider sx={{ my: 2 }}>Or continue with</Divider>
-        <Box sx={{ display: "flex", gap: 2, justifyContent: "center", mb: 2 }}>
-          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
-            <GoogleIcon />
-          </IconButton>
-          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
-            <AppleIcon />
-          </IconButton>
-          <IconButton size="large" sx={{ border: "1px solid #e5e7eb" }}>
-            <GitHubIcon />
-          </IconButton>
-        </Box>
+        <SocialLogin />
         <Typography
           variant="body2"
           sx={{ textAlign: "center", color: "grey.600" }}

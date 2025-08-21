@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
+import GenericButton from "@/components/GenericButton";
 
 const StepButton = ({
   activeStep,
@@ -19,46 +20,14 @@ const StepButton = ({
           gap: 2,
         }}
       >
-        <Button
-          variant="outlined"
-          size="small"
-          sx={{
-            textTransform: "none",
-            boxShadow: "none",
-            fontSize: "0.875rem",
-          }}
+        <GenericButton
+          label="Back"
           onClick={() => setActiveStep(activeStep - 1)}
-        >
-          Back
-        </Button>
-        {activeStep !== 3 && (
-          <Button
-            variant="contained"
-            size="small"
-            sx={{
-              textTransform: "none",
-              boxShadow: "none",
-              fontSize: "0.875rem",
-            }}
-            onClick={() => setActiveStep(activeStep + 1)}
-          >
-            Next
-          </Button>
-        )}
-        {activeStep === 3 && (
-          <Button
-            variant="contained"
-            size="small"
-            sx={{
-              textTransform: "none",
-              boxShadow: "none",
-              fontSize: "0.875rem",
-            }}
-            onClick={() => setActiveStep(activeStep + 1)}
-          >
-            Confirm Appointment
-          </Button>
-        )}
+        />
+        <GenericButton
+          label={activeStep === 3 ? "Confirm Appointment" : "Next"}
+          onClick={() => setActiveStep(activeStep + 1)}
+        />
       </Box>
     )
   );

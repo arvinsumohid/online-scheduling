@@ -52,6 +52,11 @@ npm run format
 
 ### docker
 ```bash
+docker run -p 3003:3003 online-scheduling
+```
+
+### docker
+```bash
  
 ```
 

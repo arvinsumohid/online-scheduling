@@ -1,5 +1,3 @@
-"use client";
-
 import { Box } from "@mui/material";
 import LeftSide from "../login/LeftSide";
 import RightSide from "./RightSide";

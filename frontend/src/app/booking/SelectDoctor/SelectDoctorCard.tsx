@@ -1,7 +1,8 @@
 import React from "react";
-import { Grid, Box, Typography, Button } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import DoctorCard from "./DoctorCard";
+import GenericButton from "@/components/GenericButton";
 
 const SelectDoctorCard = ({
   name,
@@ -32,19 +33,13 @@ const SelectDoctorCard = ({
         </Typography>
       </Box>
       <Box sx={{ width: "100%" }}>
-        <Button
-          variant="outlined"
-          size="small"
+        <GenericButton
+          label="Select"
+          onClick={onSelect}
           sx={{
-            textTransform: "none",
-            boxShadow: "none",
-            fontSize: "0.875rem",
             width: "100%",
           }}
-          onClick={onSelect}
-        >
-          Select
-        </Button>
+        />
       </Box>
     </Grid>
   );

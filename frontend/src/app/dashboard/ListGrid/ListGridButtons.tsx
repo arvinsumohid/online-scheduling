@@ -1,5 +1,8 @@
+'use client';
+
 import React from "react";
-import { Grid, Button } from "@mui/material";
+import { Grid } from "@mui/material";
+import GenericButton from "@/components/GenericButton";
 
 const ListGridButtons = () => {
   return (
@@ -12,31 +15,20 @@ const ListGridButtons = () => {
         justifyContent: "center",
       }}
     >
-      <Button
-        variant="outlined"
-        size="small"
+      <GenericButton
+        label="Reschedule"
+        onClick={() => console.log("Reschedule")}
         sx={{
-          textTransform: "none",
-          boxShadow: "none",
-          fontSize: "0.875rem",
           minWidth: "100px",
         }}
-      >
-        Reschedule
-      </Button>
-      <Button
-        variant="outlined"
-        size="small"
-        color="error"
+      />
+      <GenericButton
+        label="Cancel"
+        onClick={() => console.log("Cancel")}
         sx={{
-          textTransform: "none",
-          boxShadow: "none",
-          fontSize: "0.875rem",
           minWidth: "100px",
         }}
-      >
-        Cancel
-      </Button>
+      />
     </Grid>
   );
 };

@@ -11,13 +11,23 @@ const NavItem = ({
   icon,
   label,
   collapsed,
+  isMobile,
 }: {
   path: string;
   icon: React.ReactNode;
   label: string;
   collapsed: boolean;
+  isMobile: boolean;
 }) => {
   const pathName = usePathname();
+  const displayLabel = () => {
+    if (isMobile) {
+      return true;
+    } else {
+      return collapsed;
+    }
+  };
+
   return (
     <ListItem
       sx={{ backgroundColor: pathName === path ? "#2563EB" : "transparent" }}
@@ -28,7 +38,7 @@ const NavItem = ({
         style={{ color: pathName === path ? "white" : "#6B7280" }}
       >
         {icon}
-        {!collapsed && (
+        {!displayLabel() && (
           <Typography className="sidenav__label" variant="body2">
             {label}
           </Typography>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, AppBar, Toolbar, Drawer, IconButton, List } from "@mui/material";
 import { HamburgerMenu } from "../HamburgerMenu";
 import Image from "next/image";
@@ -14,10 +14,39 @@ import NavItem from "../NavItem";
 const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleHamburgerClick = () => {
     setCollapsed(!collapsed);
     setMobileOpen(!mobileOpen);
+  };
+
+  const displayWidth = () => {
+    if (isMobile) {
+      return "55px";
+    } else {
+      return collapsed ? "55px" : "240px";
+    }
+  };
+
+  const displayLabel = () => {
+    if (isMobile) {
+      return true;
+    } else {
+      return collapsed;
+    }
   };
 
   return (
@@ -25,7 +54,7 @@ const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
       <Box
         sx={{
           display: "block",
-          width: collapsed ? "55px" : "240px",
+          width: displayWidth(),
           transition: "width 0.3s ease-in-out",
         }}
       />
@@ -41,17 +70,17 @@ const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
           variant="permanent"
           anchor="left"
           sx={{
-            width: collapsed ? "55px" : "240px",
+            width: displayWidth(),
             transition: "width 0.3s ease-in-out",
             flexShrink: 0,
             "& .MuiDrawer-paper": {
-              width: collapsed ? "55px" : "240px",
+              width: displayWidth(),
               boxSizing: "border-box",
               transition: "width 0.3s ease-in-out",
             },
           }}
         >
-          <Box className="sidenav" sx={{ width: collapsed ? "55px" : "240px" }}>
+          <Box className="sidenav" sx={{ width: displayWidth() }}>
             <Box>
               <Link
                 href="/"
@@ -70,7 +99,7 @@ const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
                   priority={true}
                   style={{ maxWidth: "100%", height: "27px", width: "auto" }}
                 />
-                {!collapsed && (
+                {!displayLabel() && (
                   <Image
                     src="/images/logo-text.svg"
                     alt="Logo"
@@ -82,7 +111,7 @@ const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
                 )}
               </Link>
             </Box>
-            {!collapsed && (
+            {!displayLabel() && (
               <IconButton onClick={handleHamburgerClick}>
                 <ChevronLeftIcon />
               </IconButton>
@@ -95,12 +124,14 @@ const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
                 icon={<DashboardIcon />}
                 label="Dashboard"
                 collapsed={collapsed}
+                isMobile={isMobile}
               />
               <NavItem
                 path="/booking"
                 icon={<CalendarMonthIcon />}
                 label="Booking"
                 collapsed={collapsed}
+                isMobile={isMobile}
               />
             </List>
           </Box>
@@ -152,12 +183,14 @@ const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
                 },
               }}
             >
-              <HamburgerMenu
-                collapsed={collapsed}
-                setCollapsed={handleHamburgerClick}
-                mobileOpen={mobileOpen}
-                setMobileOpen={handleHamburgerClick}
-              />
+              {!displayLabel() && (
+                <HamburgerMenu
+                  collapsed={collapsed}
+                  setCollapsed={handleHamburgerClick}
+                  mobileOpen={mobileOpen}
+                  setMobileOpen={handleHamburgerClick}
+                />
+              )}
             </Box>
           </Toolbar>
         </AppBar>

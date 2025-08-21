@@ -1,13 +1,13 @@
 import React from "react";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import { Dayjs } from "dayjs";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import DoctorCard from "../SelectDoctor/DoctorCard";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import Title from "@/components/Title";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 const Summary = ({
   booking,
 }: {
