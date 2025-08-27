@@ -4,10 +4,9 @@ import { ComponentType } from "react";
 
 export async function withAuth<P extends object>(
   Component: ComponentType<P>,
-  props: P
+  props: P,
 ) {
   const session = await auth0.getSession();
-
   if (!session?.user) {
     redirect("/auth/login");
   }

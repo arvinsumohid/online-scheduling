@@ -1,6 +1,6 @@
-import React from 'react'
-import { Button } from '@mui/material'
-import { SxProps, Theme } from '@mui/material/styles'
+import React from "react";
+import { Button } from "@mui/material";
+import { SxProps, Theme } from "@mui/material/styles";
 interface CustomButtonProps {
   label: string;
   onClick: () => void;
@@ -23,7 +23,7 @@ const GenericButton = ({ label, onClick, sx, ...props }: CustomButtonProps) => {
     >
       {label}
     </Button>
-  )
-}
+  );
+};
 
-export default GenericButton
+export default GenericButton;

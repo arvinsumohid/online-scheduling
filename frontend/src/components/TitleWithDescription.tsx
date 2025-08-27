@@ -1,7 +1,13 @@
-import React from 'react'
-import { Box, Typography } from '@mui/material'
+import React from "react";
+import { Box, Typography } from "@mui/material";
 
-const TitleWithDescription = ({ title, description }: { title: string, description: string }) => {
+const TitleWithDescription = ({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) => {
   return (
     <Box className="text-center">
       <Typography variant="h5" fontWeight="bold" mb={1}>
@@ -11,7 +17,7 @@ const TitleWithDescription = ({ title, description }: { title: string, descripti
         {description}
       </Typography>
     </Box>
-  )
-}
+  );
+};
 
-export default TitleWithDescription
+export default TitleWithDescription;

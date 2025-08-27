@@ -13,26 +13,14 @@ const HamburgerIcon = (props: IconButtonProps) => (
 
 export const HamburgerMenu: React.FC<{
   setCollapsed: () => void;
-  collapsed: boolean;
-  mobileOpen: boolean;
-  setMobileOpen: () => void;
-}> = ({ setCollapsed, collapsed, mobileOpen, setMobileOpen }) => {
+}> = ({ setCollapsed }) => {
   return (
     <>
       <HamburgerIcon
         onClick={setCollapsed}
         sx={{
           mr: 2,
-          display: { xs: "none", md: "flex" },
-          ...(!collapsed && { display: "none" }),
-        }}
-      />
-      <HamburgerIcon
-        onClick={setMobileOpen}
-        sx={{
-          mr: 2,
-          display: { xs: "flex", md: "none" },
-          ...(mobileOpen && { display: "none" }),
+          display: "flex",
         }}
       />
     </>

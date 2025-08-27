@@ -17,3 +17,6 @@ services:
     stdin_open: true
     tty: true
     restart: unless-stopped
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true

@@ -6,6 +6,10 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return <PrivateLayout>{children}</PrivateLayout>;
 };
 
-export default async function ProtectedLayout({ children }: { children: React.ReactNode }) {
+export default async function ProtectedLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return withAuth(DashboardLayout, { children });
 }
