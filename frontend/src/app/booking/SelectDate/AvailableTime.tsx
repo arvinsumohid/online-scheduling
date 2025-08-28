@@ -28,7 +28,7 @@ const AvailableTime = ({
             Morning
           </Typography>
           <Box
-            display="flex"
+            className="flex flex-wrap justify-center gap-2"
             alignItems="center"
             justifyContent="center"
             gap={2}
@@ -37,14 +37,14 @@ const AvailableTime = ({
             <Button
               variant={time === "9:00 AM" ? "contained" : "outlined"}
               onClick={() => setTime("9:00 AM")}
-              sx={{ borderRadius: 2, minWidth: 120 }}
+              sx={{ borderRadius: 2, minWidth: { xs: 90, md: 120 } }}
             >
               9:00 AM
             </Button>
             <Button
               variant={time === "10:30 AM" ? "contained" : "outlined"}
               onClick={() => setTime("10:30 AM")}
-              sx={{ borderRadius: 2, minWidth: 120 }}
+              sx={{ borderRadius: 2, minWidth: { xs: 90, md: 120 } }}
             >
               10:30 AM
             </Button>
@@ -52,7 +52,7 @@ const AvailableTime = ({
             <Button
               variant={time === "11:45 AM" ? "contained" : "outlined"}
               onClick={() => setTime("11:45 AM")}
-              sx={{ borderRadius: 2, minWidth: 120 }}
+              sx={{ borderRadius: 2, minWidth: { xs: 90, md: 120 } }}
             >
               11:45 AM
             </Button>
@@ -63,7 +63,7 @@ const AvailableTime = ({
             Afternoon
           </Typography>
           <Box
-            display="flex"
+            className="flex flex-wrap justify-center gap-2"
             alignItems="center"
             justifyContent="center"
             gap={2}
@@ -72,14 +72,14 @@ const AvailableTime = ({
             <Button
               variant={time === "2:00 PM" ? "contained" : "outlined"}
               onClick={() => setTime("2:00 PM")}
-              sx={{ borderRadius: 2, minWidth: 120 }}
+              sx={{ borderRadius: 2, minWidth: { xs: 90, md: 120 } }}
             >
               2:00 PM
             </Button>
             <Button
               variant={time === "3:15 PM" ? "contained" : "outlined"}
               onClick={() => setTime("3:15 PM")}
-              sx={{ borderRadius: 2, minWidth: 120 }}
+              sx={{ borderRadius: 2, minWidth: { xs: 90, md: 120 } }}
             >
               3:15 PM
             </Button>
@@ -87,7 +87,7 @@ const AvailableTime = ({
             <Button
               variant={time === "4:30 PM" ? "contained" : "outlined"}
               onClick={() => setTime("4:30 PM")}
-              sx={{ borderRadius: 2, minWidth: 120 }}
+              sx={{ borderRadius: 2, minWidth: { xs: 90, md: 120 } }}
             >
               4:30 PM
             </Button>
@@ -98,10 +98,9 @@ const AvailableTime = ({
             Final Date
           </Typography>
           <Box
-            display="flex"
-            alignItems="center"
+            className="flex flex-col md:flex-row gap-2 pl-3"
             justifyContent="center"
-            gap={3}
+            gap={2}
           >
             <Box display="flex" alignItems="center" gap={1}>
               <CalendarTodayIcon fontSize="small" color="action" />

@@ -1,26 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box, AppBar, Toolbar } from "@mui/material";
 import { HamburgerMenu } from "../HamburgerMenu";
 import "../../../styles/sidenav.scss";
 import SideMenuWrapper from "./SideMenuWrapper";
+import useCheckMobile from "@/hooks/useCheckMobile";
 
 const PrivateLayout = ({ children }: { children: React.ReactNode }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkMobile();
-
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const isMobile = useCheckMobile();
 
   const handleHamburgerClick = () => {
     setCollapsed(!collapsed);
