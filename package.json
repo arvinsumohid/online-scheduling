@@ -20,6 +20,7 @@
     "@mui/x-date-pickers": "^8.8.0",
     "@mui/x-date-pickers-pro": "^8.8.0",
     "@react-google-maps/api": "^2.20.7",
+    "axios": "^1.11.0",
     "dayjs": "^1.11.13",
     "mui-tel-input": "^9.0.1",
     "next": "15.3.4",

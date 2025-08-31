@@ -10,16 +10,8 @@ export const GET = async function shows() {
     }
 
     const res = new NextResponse();
-    const { token: accessToken } = await auth0.getAccessToken();
-    const apiPort = process.env.API_PORT || 3003;
-    const response = await fetch(`http://localhost:${apiPort}/api/auth`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    const shows = await response.json();
 
-    return NextResponse.json(shows, res);
+    return NextResponse.json(session, res);
   } catch (error) {
     return NextResponse.json(
       { error: error.message },

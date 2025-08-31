@@ -58,6 +58,7 @@ docker run -p 3003:3003 online-scheduling
 ### docker-compose
 ```bash
 docker-compose up
+docker-compose down && docker-compose up --build
 ```
 
 ## Project Structure
