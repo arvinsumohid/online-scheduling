@@ -26,10 +26,13 @@ const steps = [
   },
   {
     label: "Appointment Details",
-    component: dynamic(() => import("./AppointmentDetails/AppointmentDetails"), {
-      ssr: false,
-      loading: LoadingSpinner,
-    }),
+    component: dynamic(
+      () => import("./AppointmentDetails/AppointmentDetails"),
+      {
+        ssr: false,
+        loading: LoadingSpinner,
+      },
+    ),
   },
   {
     label: "Summary",
@@ -39,7 +42,6 @@ const steps = [
     }),
   },
 ];
-
 
 const BookingForm = () => {
   const [activeStep, setActiveStep] = useState(0);

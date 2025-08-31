@@ -7,13 +7,13 @@ import { STEPS } from "@/utils/constants";
 import useCheckMobile from "@/hooks/useCheckMobile";
 
 const StepComponent = ({ activeStep }: { activeStep: number }) => {
-    const isMobile = useCheckMobile();
-  
+  const isMobile = useCheckMobile();
+
   return (
     <Stepper activeStep={activeStep} sx={{ mb: 4 }}>
       {STEPS.map((label) => (
         <Step key={label}>
-          <StepLabel>{!isMobile ? label : ''}</StepLabel>
+          <StepLabel>{!isMobile ? label : ""}</StepLabel>
         </Step>
       ))}
     </Stepper>

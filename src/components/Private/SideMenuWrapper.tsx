@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Drawer,
-} from "@mui/material";
+import { Box, Drawer } from "@mui/material";
 import SideMenu from "./SideMenu";
 import HeaderSideMenu from "./HeaderSideMenu";
 
@@ -30,7 +27,11 @@ const SideMenuWrapper = ({
         variant={isMobile ? "temporary" : "permanent"}
       >
         <HeaderSideMenu collapsed={collapsed} isMobile={isMobile} />
-        <SideMenu mobileWidth={mobileWidth} desktopWidth={desktopWidth} isMobile={isMobile} />
+        <SideMenu
+          mobileWidth={mobileWidth}
+          desktopWidth={desktopWidth}
+          isMobile={isMobile}
+        />
       </Drawer>
     </Box>
   );
