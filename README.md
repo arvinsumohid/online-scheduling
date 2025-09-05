@@ -20,10 +20,12 @@ A modern, full-featured online scheduling application for booking appointments w
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (v16 or above recommended)
 - npm or yarn
 
 ### Installation
+
 ```bash
 # Clone the repository
 $ git clone https://github.com/arvinsumohid/online-scheduling.git
@@ -36,6 +38,7 @@ yarn install
 ```
 
 ### Running the App
+
 ```bash
 # Start the development server
 $ npm run dev
@@ -46,16 +49,19 @@ yarn dev
 ```
 
 ### Formatting Code
+
 ```bash
 npm run format
 ```
 
 ### docker
+
 ```bash
 docker run -p 3003:3003 online-scheduling
 ```
 
 ### docker-compose
+
 ```bash
 docker-compose up
 docker-compose down && docker-compose up --build
@@ -97,6 +103,3 @@ This project is licensed under the MIT License.
 ---
 
 For questions or support, open an issue or contact the maintainer.
-
-
-

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Box, AppBar, Toolbar } from "@mui/material";
-import { HamburgerMenu } from "../HamburgerMenu";
+import HamburgerMenu from "../HamburgerMenu";
 import "../../../styles/sidenav.scss";
 import SideMenuWrapper from "./SideMenuWrapper";
 import useCheckMobile from "@/hooks/useCheckMobile";

@@ -11,7 +11,7 @@ const HamburgerIcon = (props: IconButtonProps) => (
   </IconButton>
 );
 
-export const HamburgerMenu: React.FC<{
+const HamburgerMenu: React.FC<{
   setCollapsed: () => void;
 }> = ({ setCollapsed }) => {
   return (
@@ -26,3 +26,6 @@ export const HamburgerMenu: React.FC<{
     </>
   );
 };
+
+export default HamburgerMenu;
+
