@@ -28,4 +28,3 @@ const HamburgerMenu: React.FC<{
 };
 
 export default HamburgerMenu;
-

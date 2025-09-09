@@ -7,7 +7,7 @@ export async function withAuth<P extends object>(
   props: P,
 ) {
   const session = await auth0.getSession();
-  console.log('token', await auth0.getAccessToken());
+  console.log("token", await auth0.getAccessToken());
   if (!session?.user) {
     redirect("/auth/login");
   }
